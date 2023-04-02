@@ -1,0 +1,34 @@
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { createTheme, ThemeProvider } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import store from '../redux/store';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#4c14ed',
+    },
+    secondary: {
+      main: '#141629',
+    },
+    background: {
+      default: '#f5f7fb',
+    },
+  },
+});
+
+function Providers({ children }) {
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Provider store={store}>{children}</Provider>
+    </ThemeProvider>
+  );
+}
+
+Providers.propTypes = {
+  children: Component,
+};
+
+export default Providers;
