@@ -19,7 +19,11 @@ function TicketsTable({ data }) {
         <TableBody>
           {data
             ? data.map((rowData, idx) => (
-                <TicketsTableBodyRow key={idx} rowData={rowData} />
+                <TicketsTableBodyRow
+                  testId={`value-${rowData.ticker}`}
+                  key={idx}
+                  rowData={rowData}
+                />
               ))
             : null}
         </TableBody>

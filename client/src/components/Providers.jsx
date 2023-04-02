@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import store from "../redux/store";
+import store, { configuredStore } from "../redux/store";
 
 const theme = createTheme({
   palette: {
@@ -27,7 +27,7 @@ function Providers({ children }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Provider store={store}>{children}</Provider>
+      <Provider store={configuredStore}>{children}</Provider>
     </ThemeProvider>
   );
 }
