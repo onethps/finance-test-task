@@ -1,7 +1,7 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import { Provider } from "react-redux";
-import { setupStore } from "../redux/store";
+import React from 'react';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { setupStore } from '../redux/store';
 
 export function renderWithProviders(
   ui,
@@ -12,6 +12,7 @@ export function renderWithProviders(
     ...renderOptions
   } = {}
 ) {
+  // eslint-disable-next-line react/prop-types
   function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;
   }

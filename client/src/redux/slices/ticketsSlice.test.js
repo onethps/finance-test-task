@@ -1,13 +1,13 @@
-import ticketsSlice from "./ticketsSlice";
+import ticketsSlice from './ticketsSlice';
 
-describe("tickets reducer", () => {
+describe('tickets reducer', () => {
   const previousState = {
     isEstablishingConnection: false,
     isConnected: false,
     tickets: [],
   };
 
-  it("should change connection status", () => {
+  it('should change connection status', () => {
     expect(
       ticketsSlice.reducer(
         previousState,
@@ -20,17 +20,17 @@ describe("tickets reducer", () => {
     });
   });
 
-  it("should change connection on stop connections", () => {
+  it('should change connection on stop connections', () => {
     expect(
       ticketsSlice.reducer(previousState, ticketsSlice.actions.stopConnecting())
     ).toEqual(previousState);
   });
 
-  it("should change connection on stop", () => {
+  it('should change connection on stop', () => {
     const testData = [
       {
-        ticket: "V",
-        price: "222$",
+        ticket: 'V',
+        price: '222$',
       },
     ];
 

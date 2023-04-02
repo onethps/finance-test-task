@@ -1,13 +1,13 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
-import ticketsSocketMiddleware from "./middleware/ticketsSocketMiddleware";
-import ticketsSlice from "./slices/ticketsSlice";
+import ticketsSocketMiddleware from './middleware/ticketsSocketMiddleware';
+import ticketsSlice from './slices/ticketsSlice';
 
 const rootReducer = combineReducers({
   tickets: ticketsSlice.reducer,
 });
 
-export function setupStore(preloadedState) {
+export function setupStore() {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
