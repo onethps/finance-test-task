@@ -96,6 +96,7 @@ socketServer.on("connection", (socket) => {
       tickers.splice(ticketIndex, 1);
     }
   });
+  socket.emit("SUCCEEE");
 });
 
 socketServer.on("connection", (socket) => {

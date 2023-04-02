@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Box, IconButton, Stack, TextField } from "@mui/material";
+import { Box, IconButton, Stack, TextField, Typography } from "@mui/material";
 import { socket } from "../lib/socket";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 function Settings() {
   const [inteval, setInterval] = useState("");
+  const [currentInterval, setCurrentInterval] = useState(5000);
   const [newTicker, setNewTicker] = useState("");
 
   const handleAddNewTicker = () => {
@@ -14,6 +15,7 @@ function Settings() {
 
   const handleChangeInterval = () => {
     socket.emit("setInterval", inteval);
+    setCurrentInterval(inteval);
     setInterval("");
   };
 
@@ -39,18 +41,24 @@ function Settings() {
       </Box>
 
       <Box>
-        <TextField
-          variant="standard"
-          label="Set Interval"
-          value={inteval}
-          onChange={(event) => {
-            setInterval(event.target.value);
-          }}
-          type="number"
-        />
-        <IconButton size="large" onClick={handleChangeInterval}>
-          <AddCircleIcon />
-        </IconButton>
+        <Stack mb="20px" flexDirection="row" alignItems="center">
+          <TextField
+            variant="standard"
+            label="Set Interval"
+            value={inteval}
+            onChange={(event) => {
+              setInterval(event.target.value);
+            }}
+            type="number"
+          />
+          <IconButton size="large" onClick={handleChangeInterval}>
+            <AddCircleIcon />
+          </IconButton>
+        </Stack>
+
+        <Typography variant="body2" color="grey">
+          Current Interval {currentInterval}
+        </Typography>
       </Box>
     </Stack>
   );

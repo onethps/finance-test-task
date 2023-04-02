@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "@mui/material";
 import { useSelector } from "react-redux";
 import useActions from "./hooks/useActions";
@@ -9,7 +9,7 @@ function App() {
   const { startConnecting, stopConnecting } = useActions();
   const tickets = useSelector((state) => state.tickets.tickets);
 
-  React.useEffect(() => {
+  useEffect(() => {
     startConnecting();
 
     return () => {
