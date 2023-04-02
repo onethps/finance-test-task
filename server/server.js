@@ -90,8 +90,8 @@ socketServer.on("connection", (socket) => {
 });
 
 socketServer.on("connection", (socket) => {
-  socket.on("deleteItem", (data) => {
-    const ticketIndex = tickers.findIndex((t) => t === data);
+  socket.on("deleteItem", (tickerName) => {
+    const ticketIndex = tickers.findIndex((name) => name === tickerName);
     if (ticketIndex >= 1) {
       tickers.splice(ticketIndex, 1);
     }
