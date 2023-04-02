@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import TableDataRow from "./TableRow";
 
 function TicketsTable({ data }) {
   return (
@@ -28,35 +29,8 @@ function TicketsTable({ data }) {
         </TableHead>
         <TableBody>
           {data
-            ? data.map((row, idx) => (
-                <StyledTableRow
-                  key={idx}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.ticker}
-                  </TableCell>
-                  <TableCell align="right" color="primary">
-                    {row.exchange}
-                  </TableCell>
-                  <TableCell align="right">{row.price} $</TableCell>
-                  <TableCell
-                    align="right"
-                    sx={{
-                      color: row.change_percent > 0 ? "green" : "red",
-                    }}
-                  >
-                    {row.change} $
-                  </TableCell>
-                  <TableCell
-                    sx={{
-                      color: row.change_percent > 0 ? "green" : "red",
-                    }}
-                    align="right"
-                  >
-                    {row.change_percent} %
-                  </TableCell>
-                </StyledTableRow>
+            ? data.map((rowData, idx) => (
+                <TableDataRow key={idx} rowData={rowData} />
               ))
             : null}
         </TableBody>
